@@ -1,15 +1,16 @@
-class Animal {
+export default class Animal {
     #alive;
-    constructor(birthName, initialWeight){
+    constructor(birthName, initialWeight, gender) {
         this.name = birthName;
         this.weight = initialWeight;
+        this.gender = gender;
         this.#alive = true;
     }
-    drink(){
+    drink() {
         console.log('slurp');
     }
 
-    eat(animal){
+    eat(animal) {
         if(animal instanceof Animal){
             if(animal.weight < this.weight) {
                 this.weight = this.weight + animal.weight;
@@ -28,12 +29,16 @@ class Animal {
         this.#alive = false;
     }
 
-    get currentWeight(){
+    get currentWeight() {
         return this.weight;
     }
 
-    get isAlive(){
+    get isAlive() {
         return this.#alive;
+    }
+
+    get sex() {
+        return this.gender;
     }
 
     revive() {
@@ -45,8 +50,8 @@ class Animal {
 
 //TEST
 /*
-let mouse = new Animal("Jerry",1);
-let cat = new Animal("Tom",10)
+let mouse = new Animal("Jerry",1,"Male");
+let cat = new Animal("Tom",10,"Male")
 
 cat.eat(mouse); //weight combine, kill mouse
 console.log(cat.currentWeight); //11
