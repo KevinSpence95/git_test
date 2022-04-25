@@ -22,3 +22,7 @@ dog1.drink()
 let dog2 = new Dog("Sarah",85,"Female");
 let babyDog = dog1.breed(dog2);
 console.log(babyDog.sex);
+console.log(Object.entries(babyDog))
+Object.entries(babyDog).forEach((item)=>{
+    console.log(item[0]);
+})
